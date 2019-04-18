@@ -2,30 +2,33 @@ package app;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class AppTest {
     private String[] args = "-l -p 8080 -d /usr/logs".split(" ");
+    private ArgsParser parser;
+    private Options options;
+
+    @Before
+    public void setUp() {
+        parser = new ArgsParser();
+        options = parser.parse(args);
+    }
 
     @Test
     public void parseArgsShouldReturnOptions() {
-        ArgsParser parser = new ArgsParser();
-        Options options = parser.parse(args);
-        assertNotNull(options);
+        assertNotNull(this.options);
     }
 
     @Test
     public void shouldCheckHasSomeOption() {
-        ArgsParser parser = new ArgsParser();
-        Options options = parser.parse(args);
         assertTrue("has -l", options.hasOption("-l"));
         assertFalse("has -x", options.hasOption("-x"));
     }
 
     @Test
     public void shouldGetBoolOption() {
-        ArgsParser parser = new ArgsParser();
-        Options options = parser.parse(args);
         assertTrue("has -l", options.getBool("-l"));
         assertFalse("has -x", options.getBool("-x"));
     }
