@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class AppTest {
-    private String args = "-l -p 8080 -d /usr/logs";
+    private String[] args = "-l -p 8080 -d /usr/logs".split(" ");
 
     @Test
     public void parseArgsShouldReturnOptions() {
@@ -17,7 +17,8 @@ public class AppTest {
     @Test
     public void shouldCheckHasSomeOption() {
         ArgsParser parser = new ArgsParser();
-        Options options = parser.parse(args.split(" "));
+        Options options = parser.parse(args);
         assertTrue("has -l", options.hasOption("-l"));
+        assertFalse("has -x", options.hasOption("-x"));
     }
 }
