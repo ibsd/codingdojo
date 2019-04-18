@@ -1,10 +1,15 @@
 package app;
 
+import java.util.List;
+
 public class Options {
-    Options() {
+    private List<String> options;
+
+    Options(List<String> list) {
+        this.options = list;
     }
 
-    public boolean hasOption(String string) {
-        return true;
+    public boolean hasOption(String arg) {
+        return options.stream().filter(option -> option.contains(arg)).count() > 0;
     }
 }
