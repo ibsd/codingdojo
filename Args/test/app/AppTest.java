@@ -43,4 +43,9 @@ public class AppTest {
     public void shouldGetIntOption() throws NoSuchArgsOptionException {
         assertEquals("has -p 8080", 8080, options.getInt("-p"));
     }
+
+    @Test
+    public void shouldGetStringOption() throws NoSuchArgsOptionException {
+        assertEquals("has -d /usr/logs", "/usr/logs", options.getString("-d"));
+    }
 }

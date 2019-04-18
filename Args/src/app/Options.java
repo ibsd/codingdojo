@@ -50,4 +50,12 @@ public class Options {
     public void add(Option option) {
         this.options.put(option.flag, option);
     }
+
+    public String getString(String arg) throws NoSuchArgsOptionException {
+        if (hasOption(arg)) {
+            Option option = this.options.get(arg);
+            return (String) option.value;
+        }
+        throw new NoSuchArgsOptionException("Unkonw args: " + arg);
+    }
 }
