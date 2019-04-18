@@ -13,4 +13,11 @@ public class AppTest {
         Options options = parser.parse(args);
         assertNotNull(options);
     }
+
+    @Test
+    public void shouldCheckHasSomeOption() {
+        ArgsParser parser = new ArgsParser();
+        Options options = parser.parse(args);
+        assertTrue("has -l", options.hasOption("-l"));
+    }
 }
