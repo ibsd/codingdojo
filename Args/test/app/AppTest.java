@@ -9,10 +9,12 @@ public class AppTest {
     private String[] args = "-l -p 8080 -d /usr/logs".split(" ");
     private ArgsParser parser;
     private Options options;
+    private Schema schema;
 
     @Before
     public void setUp() {
-        parser = new ArgsParser();
+        schema = new Schema();
+        parser = new ArgsParser(schema);
         options = parser.parse(args);
     }
 
@@ -28,8 +30,12 @@ public class AppTest {
     }
 
     @Test
-    public void shouldGetBoolOption() {
+    public void shouldGetBoolOption() throws NoSuchArgsOptionException {
         assertTrue("has -l", options.getBool("-l"));
-        assertFalse("has -x", options.getBool("-x"));
+    }
+
+    @Test(expected = NoSuchArgsOptionException.class)
+    public void shouldShowExceptionIfUnkonwOption() throws NoSuchArgsOptionException {
+        assertTrue("has -x", options.getBool("-x"));
     }
 }

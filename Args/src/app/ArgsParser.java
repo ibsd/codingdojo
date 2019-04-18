@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ArgsParser {
-    ArgsParser() {
+    ArgsParser(Schema schema) {
     }
 
     public Options parse(String[] args) {

@@ -13,11 +13,10 @@ public class Options {
         return options.stream().filter(option -> option.contains(arg)).count() > 0;
     }
 
-    public boolean getBool(String arg) {
+    public boolean getBool(String arg) throws NoSuchArgsOptionException {
         if (hasOption(arg)) {
             return true;
         }
-        // TODO not in schema should show error
-        return false;
+        throw new NoSuchArgsOptionException("Unkonw args: " + arg);
     }
 }
