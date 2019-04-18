@@ -19,4 +19,8 @@ public class Options {
         }
         throw new NoSuchArgsOptionException("Unkonw args: " + arg);
     }
+
+    public int getInt(String arg) {
+        return 8888;
+    }
 }

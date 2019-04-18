@@ -38,4 +38,9 @@ public class AppTest {
     public void shouldShowExceptionIfUnkonwOption() throws NoSuchArgsOptionException {
         assertTrue("has -x", options.getBool("-x"));
     }
+
+    @Test
+    public void shouldGetIntOption() {
+        assertEquals("has -p 8888", 8888, options.getInt("-l"));
+    }
 }
