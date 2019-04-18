@@ -12,4 +12,12 @@ public class Options {
     public boolean hasOption(String arg) {
         return options.stream().filter(option -> option.contains(arg)).count() > 0;
     }
+
+    public boolean getBool(String arg) {
+        if (hasOption(arg)) {
+            return true;
+        }
+        // TODO not in schema should show error
+        return false;
+    }
 }

@@ -21,4 +21,12 @@ public class AppTest {
         assertTrue("has -l", options.hasOption("-l"));
         assertFalse("has -x", options.hasOption("-x"));
     }
+
+    @Test
+    public void shouldGetBoolOption() {
+        ArgsParser parser = new ArgsParser();
+        Options options = parser.parse(args);
+        assertTrue("has -l", options.getBool("-l"));
+        assertFalse("has -x", options.getBool("-x"));
+    }
 }
