@@ -5,9 +5,12 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class AppTest {
+    private String args = "-l -p 8080 -d /usr/logs";
 
     @Test
-    public void shouldAssertTrue() {
-        assertTrue(true);
+    public void parseArgsShouldReturnOptions() {
+        ArgsParser parser = new ArgsParser();
+        Options options = parser.parse(args);
+        assertNotNull(options);
     }
 }
