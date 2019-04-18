@@ -13,14 +13,14 @@ public class AppTest {
 
     @Before
     public void setUp() {
-        schema = new Schema();
+        schema = new Schema("-l:bool,-p:int,-d:string");
         parser = new ArgsParser(schema);
         options = parser.parse(args);
     }
 
     @Test
     public void parseArgsShouldReturnOptions() {
-        assertNotNull(this.options);
+        assertNotNull(options);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class AppTest {
     }
 
     @Test
-    public void shouldGetIntOption() {
-        assertEquals("has -p 8888", 8888, options.getInt("-l"));
+    public void shouldGetIntOption() throws NoSuchArgsOptionException {
+        assertEquals("has -p 8080", 8080, options.getInt("-p"));
     }
 }
