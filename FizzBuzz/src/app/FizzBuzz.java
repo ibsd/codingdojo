@@ -1,6 +1,8 @@
 package app;
 
 public class FizzBuzz {
+    private final int FizzValue = 3;
+    private final int BuzzValue = 5;
     private int value;
 
     FizzBuzz(int v) {
@@ -9,15 +11,15 @@ public class FizzBuzz {
 
     @Override
     public String toString() {
-        if (this.value % 15 == 0) {
+        if (this.value % (this.FizzValue * this.BuzzValue) == 0) {
             return "FizzBuzz";
         }
 
-        if (this.value % 3 == 0) {
+        if (this.value % this.FizzValue == 0) {
             return "Fizz";
         }
 
-        if (this.value % 5 == 0) {
+        if (this.value % this.BuzzValue == 0) {
             return "Buzz";
         }
 
