@@ -9,17 +9,21 @@ public class FizzBuzz {
         this.value = v;
     }
 
+    private boolean checkMultiBy(int multi) {
+        return this.value % multi == 0;
+    }
+
     @Override
     public String toString() {
-        if (this.value % (this.FizzValue * this.BuzzValue) == 0) {
+        if (checkMultiBy(this.FizzValue) && checkMultiBy(this.BuzzValue)) {
             return "FizzBuzz";
         }
 
-        if (this.value % this.FizzValue == 0) {
+        if (checkMultiBy(this.FizzValue)) {
             return "Fizz";
         }
 
-        if (this.value % this.BuzzValue == 0) {
+        if (checkMultiBy(this.BuzzValue)) {
             return "Buzz";
         }
 
