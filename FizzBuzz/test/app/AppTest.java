@@ -26,4 +26,9 @@ public class AppTest {
     public void shouldReturnBuzzIfDiv5() {
         testEqual(5, "Buzz");
     }
+
+    @Test
+    public void shouldReturnFizzBuzzIfDiv3and5() {
+        testEqual(15, "FizzBuzz");
+    }
 }
