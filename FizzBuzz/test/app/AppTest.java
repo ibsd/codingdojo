@@ -6,26 +6,24 @@ import org.junit.Test;
 
 public class AppTest {
 
+    private void testEqual(int origin, String expect) {
+        FizzBuzz actual = new FizzBuzz(origin);
+        assertEquals(expect, actual.toString());
+    }
+
     @Test
     public void shouldReturnOrigin() {
-        int origin = 1;
-        FizzBuzz actual = new FizzBuzz(origin);
-        assertEquals(String.valueOf(origin), actual.toString());
+        testEqual(1, "1");
+        testEqual(2, "2");
     }
 
     @Test
     public void shouldReturnFizzIfDiv3() {
-        int origin = 3;
-        String expect = "Fizz";
-        FizzBuzz actual = new FizzBuzz(origin);
-        assertEquals(expect, actual.toString());
+        testEqual(3, "Fizz");
     }
 
     @Test
     public void shouldReturnBuzzIfDiv5() {
-        int origin = 5;
-        String expect = "Buzz";
-        FizzBuzz actual = new FizzBuzz(origin);
-        assertEquals(expect, actual.toString());
+        testEqual(5, "Buzz");
     }
 }
