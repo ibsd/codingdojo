@@ -20,4 +20,12 @@ public class AppTest {
         FizzBuzz actual = new FizzBuzz(origin);
         assertEquals(expect, actual.toString());
     }
+
+    @Test
+    public void shouldReturnBuzzIfDiv5() {
+        int origin = 5;
+        String expect = "Buzz";
+        FizzBuzz actual = new FizzBuzz(origin);
+        assertEquals(expect, actual.toString());
+    }
 }
