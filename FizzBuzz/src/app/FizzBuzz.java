@@ -1,8 +1,10 @@
 package app;
 
 public class FizzBuzz {
-    private final int FizzValue = 3;
-    private final int BuzzValue = 5;
+    private final int fizzNumber = 3;
+    private final int buzzNumber = 5;
+    private final String fizzValue = "Fizz";
+    private final String buzzValue = "Buzz";
     private int value;
 
     FizzBuzz(int v) {
@@ -15,24 +17,24 @@ public class FizzBuzz {
 
     @Override
     public String toString() {
-        if (checkMultiBy(this.FizzValue) && checkMultiBy(this.BuzzValue)) {
-            return "FizzBuzz";
+        if (checkMultiBy(this.fizzNumber) && checkMultiBy(this.buzzNumber)) {
+            return this.fizzValue + this.buzzValue;
         }
 
-        if (checkMultiBy(this.FizzValue)) {
-            return "Fizz";
+        if (checkMultiBy(this.fizzNumber)) {
+            return this.fizzValue;
         }
 
-        if (checkMultiBy(this.BuzzValue)) {
-            return "Buzz";
+        if (checkMultiBy(this.buzzNumber)) {
+            return this.buzzValue;
         }
 
-        if (checkHas(this.FizzValue)) {
-            return "Fizz";
+        if (checkHas(this.fizzNumber)) {
+            return this.fizzValue;
         }
 
-        if (checkHas(this.BuzzValue)) {
-            return "Buzz";
+        if (checkHas(this.buzzNumber)) {
+            return this.buzzValue;
         }
 
         return String.valueOf(this.value);
