@@ -15,32 +15,23 @@ public class FizzBuzz {
         return this.value % multi == 0;
     }
 
-    @Override
-    public String toString() {
-        if (checkMultiBy(this.fizzNumber) && checkMultiBy(this.buzzNumber)) {
-            return this.fizzValue + this.buzzValue;
-        }
-
-        if (checkMultiBy(this.fizzNumber)) {
-            return this.fizzValue;
-        }
-
-        if (checkMultiBy(this.buzzNumber)) {
-            return this.buzzValue;
-        }
-
-        if (checkHas(this.fizzNumber)) {
-            return this.fizzValue;
-        }
-
-        if (checkHas(this.buzzNumber)) {
-            return this.buzzValue;
-        }
-
-        return String.valueOf(this.value);
-    }
-
     private boolean checkHas(int v) {
         return String.valueOf(this.value).contains(String.valueOf(v));
+    }
+
+    @Override
+    public String toString() {
+        String result = "";
+
+        // check if has Fizz
+        if (checkMultiBy(this.fizzNumber) || checkHas(this.fizzNumber)) {
+            result += this.fizzValue;
+        }
+
+        if (checkMultiBy(this.buzzNumber) || checkHas(this.buzzNumber)) {
+            result += this.buzzValue;
+        }
+
+        return result.isEmpty() ? String.valueOf(this.value) : result;
     }
 }
