@@ -27,6 +27,18 @@ public class FizzBuzz {
             return "Buzz";
         }
 
+        if (checkHas(this.FizzValue)) {
+            return "Fizz";
+        }
+
+        if (checkHas(this.BuzzValue)) {
+            return "Buzz";
+        }
+
         return String.valueOf(this.value);
+    }
+
+    private boolean checkHas(int v) {
+        return String.valueOf(this.value).contains(String.valueOf(v));
     }
 }

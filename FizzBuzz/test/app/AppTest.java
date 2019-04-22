@@ -31,4 +31,14 @@ public class AppTest {
     public void shouldReturnFizzBuzzIfDiv3and5() {
         testEqual(15, "FizzBuzz");
     }
+
+    @Test
+    public void shouldReturnFizzIfHas3() {
+        testEqual(13, "Fizz");
+    }
+
+    @Test
+    public void shouldReturnBuzzIfHas5() {
+        testEqual(52, "Buzz");
+    }
 }
