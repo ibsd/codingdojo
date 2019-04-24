@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+group 'FizzBuzz3'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+dependencies {
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.4.2")
+    testCompile("org.junit.jupiter:junit-jupiter-params:5.4.2")
+//    testRuntime("org.junit.platform:junit-platform-launcher:1.4.2")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.4.2")
+//    testRuntime("org.junit.vintage:junit-vintage-engine:5.4.2")
+}
+
+wrapper {
+    gradleVersion = '4.8'
+}
