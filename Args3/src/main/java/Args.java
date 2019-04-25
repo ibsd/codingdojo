@@ -1,24 +1,25 @@
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class Args {
-    private HashMap<String, Object> options;
+    private HashMap<String, ArgItem> options;
 
     public Args(String schema, String args_value) {
         ArgSchema schemaOption = new ArgSchema(schema);
         this.options = new HashMap<>();
 
-        parse(args_value, schemaOption);
+        parse2(args_value, schemaOption);
     }
 
-    private void parse(String args_value, ArgSchema schemaOption) {
-        String[] list = args_value.split(" ");
-        for (int i = 0; i < list.length; ) {
-            String flag = list[i++];
-            if (schemaOption.match(flag)) {
-                flag = flag.substring(1);
-                options.put(flag, schemaOption.hasValue(flag) ? true : list[i++]);
+    private void parse2(String args_value, ArgSchema schemaOption) {
+        List<String> list = Arrays.asList(args_value.split("-"));
+        list.forEach(option -> {
+            if (option.length() > 0) {
+                ArgItem item = new ArgItem(option.trim(), schemaOption);
+                this.options.put(item.getFlag(), item);
             }
-        }
+        });
     }
 
     public boolean hasOption(String op) {
@@ -31,12 +32,12 @@ public class Args {
 
     public int getInt(String op) {
         if (hasOption(op)) {
-            return Integer.parseInt(this.options.get(op).toString());
+            return this.options.get(op).getInt();
         }
         return 0;
     }
 
     public String getString(String op) {
-        return this.options.get(op).toString();
+        return this.options.get(op).getString();
     }
 }
