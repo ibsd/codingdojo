@@ -1,0 +1,12 @@
+- [x] 解析单个schema并取得默认值
+  - [x] l:bool:true, true
+  - [x] p:int:8080, 8080
+  - [x] 'q:int:80,90', '80,90'
+  - [x] d:string:/var/logs, /var/logs
+  - [x] 'e:string:/var,/logs', '/var,/logs'
+- [x] 解析schema列表并取得默认值
+  - [x] l:bool:true;p:int:8080;d:string:/var/logs
+  - [x] l:bool:true;p:int:80,90;d:string:/var,/logs
+- [x] 解析Args并取得实际值
+  - [x] -l -p 9090 -d /tmp/logs
+  - [x] -l -p 90,80 -d /tmp,/logs
