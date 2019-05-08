@@ -25,9 +25,13 @@ public class Args {
     public Object getValue(String op) throws NoSuchArgsOptionException {
         return SCHEMA.stream()
                 .filter(rule -> rule.match(op))
-                .map(rule -> rule.parse(rule.hasValue() ? this.getParam(op) : Boolean.valueOf(this.hasOption(op)).toString()))
+                .map(rule -> rule.parse(params(op, rule)))
                 .findFirst()
                 .orElseThrow(NoSuchArgsOptionException::new);
+    }
+
+    private String params(String op, RuleParser rule) {
+        return rule.hasValue() ? this.getParam(op) : Boolean.valueOf(this.hasOption(op)).toString();
     }
 
     private String getParam(String op) {
