@@ -9,7 +9,7 @@ class ArgsTest {
     }
 
     @Test
-    void parse_args_l() throws NoSuchArgsOptionException, NoSuchArgsParamException {
+    void parse_args_l() throws NoSuchArgsOptionException {
         Args args = new Args("-l");
         assertTrue(args.hasOption("l"));
         assertEquals(Boolean.class, args.getValue("l").getClass());
@@ -19,11 +19,11 @@ class ArgsTest {
     @Test
     void parse_args_no_l() {
         Args args = new Args("-?");
-        assertThrows(NoSuchArgsOptionException.class, () -> args.hasOption("l"));
+        assertFalse(args.hasOption("l"));
     }
 
     @Test
-    void parse_args_p_8080() throws NoSuchArgsOptionException, NoSuchArgsParamException {
+    void parse_args_p_8080() throws NoSuchArgsOptionException {
         Args args = new Args("-p 8080");
         assertTrue(args.hasOption("p"));
         assertEquals(Integer.class, args.getValue("p").getClass());
@@ -31,7 +31,7 @@ class ArgsTest {
     }
 
     @Test
-    void parse_args_d_var_logs() throws NoSuchArgsOptionException, NoSuchArgsParamException {
+    void parse_args_d_var_logs() throws NoSuchArgsOptionException {
         Args args = new Args("-d /var/logs");
         assertTrue(args.hasOption("d"));
         assertEquals(String.class, args.getValue("d").getClass());
@@ -39,7 +39,7 @@ class ArgsTest {
     }
 
     @Test
-    void parse_args_l_p_d() throws NoSuchArgsOptionException, NoSuchArgsParamException {
+    void parse_args_l_p_d() throws NoSuchArgsOptionException {
         Args args = new Args("-l -p 8080 -d /var/logs");
         assertEquals(args.getValue("l"), Boolean.TRUE);
         assertEquals(args.getValue("p"), 8080);
