@@ -7,10 +7,19 @@ public class FizzBuzz {
 
     @Override
     public String toString() {
-        if (isDivBy(15)) return "FizzBuzz";
-        if (isDivBy(3)) return "Fizz";
-        if (isDivBy(5)) return "Buzz";
+        // FIXME switch to array pipe
+        if (ruleFizz() && ruleBuzz()) return "FizzBuzz";
+        if (ruleFizz()) return "Fizz";
+        if (ruleBuzz()) return "Buzz";
         return String.valueOf(this.value);
+    }
+
+    private boolean ruleFizz() {
+        return isDivBy(3);
+    }
+
+    private boolean ruleBuzz() {
+        return isDivBy(5);
     }
 
     private boolean isDivBy(int i) {
