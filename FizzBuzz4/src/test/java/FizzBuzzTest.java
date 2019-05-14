@@ -11,7 +11,6 @@ public class FizzBuzzTest {
             "3, Fizz",
             "5, Buzz",
             "15, FizzBuzz",
-
     })
     void should_input_1_return_1(int input, String expected) {
         FizzBuzz item = new FizzBuzz(input);

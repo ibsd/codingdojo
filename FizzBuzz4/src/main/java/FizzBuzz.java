@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class FizzBuzz {
     private final int value;
 
@@ -7,22 +9,12 @@ public class FizzBuzz {
 
     @Override
     public String toString() {
-        // FIXME switch to array pipe
-        if (ruleFizz() && ruleBuzz()) return "FizzBuzz";
-        if (ruleFizz()) return "Fizz";
-        if (ruleBuzz()) return "Buzz";
-        return String.valueOf(this.value);
-    }
-
-    private boolean ruleFizz() {
-        return isDivBy(3);
-    }
-
-    private boolean ruleBuzz() {
-        return isDivBy(5);
-    }
-
-    private boolean isDivBy(int i) {
-        return this.value % i == 0;
+        // FIXME rule to array
+        List<Playable> rules = Rules.all();
+        return rules.stream()
+                .map(rule -> rule.play(this.value))
+                .filter(value -> !value.isEmpty())
+                .reduce(String::concat)
+                .orElse(String.valueOf(this.value));
     }
 }
