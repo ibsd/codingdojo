@@ -1,4 +1,4 @@
-public class DivRule implements Playable {
+public class DivRule implements Executable {
     private int input;
     private final String output;
 
@@ -7,12 +7,12 @@ public class DivRule implements Playable {
         this.output = out;
     }
 
-    public static Playable create(int in, String out) {
+    public static Executable create(int in, String out) {
         return new DivRule(in, out);
     }
 
     @Override
-    public String play(int i) {
+    public String exec(int i) {
         if (i % this.input == 0) return this.output;
         return "";
     }

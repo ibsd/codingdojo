@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class FizzBuzz {
     private final int value;
 
@@ -9,11 +7,11 @@ public class FizzBuzz {
 
     @Override
     public String toString() {
-        // FIXME rule to array
-        List<Playable> rules = Rules.all();
-        return rules.stream()
-                .map(rule -> rule.play(this.value))
+        return Rules.all()
+                .stream()
+                .map(rule -> rule.exec(this.value))
                 .filter(value -> !value.isEmpty())
+                .distinct()
                 .reduce(String::concat)
                 .orElse(String.valueOf(this.value));
     }

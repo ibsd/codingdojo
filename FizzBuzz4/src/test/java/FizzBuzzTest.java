@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -11,8 +10,11 @@ public class FizzBuzzTest {
             "3, Fizz",
             "5, Buzz",
             "15, FizzBuzz",
+            "31, Fizz",
+            "56, Buzz",
+            "53, FizzBuzz",
     })
-    void should_input_1_return_1(int input, String expected) {
+    void should_play_fizz_buzz(int input, String expected) {
         FizzBuzz item = new FizzBuzz(input);
         assertEquals(expected, item.toString());
     }
