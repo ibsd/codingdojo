@@ -16,6 +16,6 @@ public class FizzBuzzTest {
     })
     void should_play_fizz_buzz(int input, String expected) {
         FizzBuzz item = new FizzBuzz(input);
-        assertEquals(expected, item.toString());
+        assertEquals(expected, item.apply(Rules.all()));
     }
 }
