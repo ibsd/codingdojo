@@ -1,0 +1,8 @@
+[submodule "Anagrams2"]
+	path = Anagrams2
+	url = git@github.com:programmers-gym/codeKata-ibsd.git
+	branch = anagrams
+[submodule "FizzBuzz6"]
+	path = FizzBuzz6
+	url = git@github.com:programmers-gym/codeKata-ibsd.git
+	branch = fizzbuzz
